@@ -1,50 +1,114 @@
-# Welcome to your Expo app 👋
+# Task Manager App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple and clean task manager built with React Native and Expo.
 
-## Get started
+---
 
-1. Install dependencies
+## About
+
+This app allows users to manage their daily tasks. It includes a task list with real-time search, the ability to add new tasks, view task details, mark tasks as complete, and delete them. A random motivational quote is fetched from a public API and displayed on the home screen.
+
+---
+
+## Features
+
+- View all tasks in a clean list
+- Search tasks by title in real time
+- Add new tasks with title and description
+- View task details
+- Mark tasks as complete / not completed
+- Delete a task from the detail screen
+- Empty state handling when no tasks are found
+- Tasks are saved on the device and persist between sessions
+- Random motivational quote fetched from a public API
+
+---
+
+## Tech Stack
+
+- React Native (JavaScript)
+- Expo SDK 54
+- React Context API for state management
+- AsyncStorage for local persistence
+- React Navigation for screen navigation
+- React hooks: `useState`, `useEffect`, `useMemo`, `useCallback`, `useContext`
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── EmptyState.jsx
+│   ├── QuoteCard.jsx
+│   └── TaskCard.jsx
+├── context/
+│   └── TaskContext.js
+├── screens/
+│   ├── AddTaskScreen.jsx
+│   ├── TaskDetailScreen.jsx
+│   └── TaskListScreen.jsx
+└── utils/
+    └── storage.js
+```
+
+---
+
+## Prerequisites
+
+- Node.js installed on your machine
+- Expo CLI: `npm install -g expo-cli`
+- Expo Go app installed on your phone (iOS or Android)
+
+---
+
+## Setup Instructions
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/arlindademaj/pritech-task-manager.git
+   cd pritech-task-manager
+   ```
+
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Start the app**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Run on device or simulator**
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator
+   - Scan the QR code with the Expo Go app on your phone
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## What Was Implemented
 
-## Get a fresh project
+- **Task list screen** — displays all tasks with real-time search by title and an empty state when no results are found
+- **Add task screen** — form to create a new task with title and description, includes basic input validation
+- **Task detail screen** — shows full task info with options to toggle status and delete the task
+- **TaskCard** — reusable component for rendering each task in the list
+- **QuoteCard** — reusable component that displays a motivational quote fetched from a public API
+- **EmptyState** — handles both empty list and no search results scenarios
+- **TaskContext** — global state management using React Context API, handles adding, toggling, and deleting tasks
+- **Local storage** — tasks are persisted on the device using AsyncStorage so they survive app restarts
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## Task Data Structure
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| Field        | Description                                |
+| ------------ | ------------------------------------------ |
+| Title        | Task title entered by the user             |
+| Description  | Short task description entered by the user |
+| Status       | Completed or pending                       |
+| Created date | Date when the task was created             |
