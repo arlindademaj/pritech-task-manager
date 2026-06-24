@@ -2,11 +2,17 @@ import { StyleSheet, Text, View } from "react-native";
 import colors from "../utils/colors";
 
 export default function EmptyState({ hasSearch }) {
+  let message = "";
+
+  if (hasSearch) {
+    message = "No tasks match your search.";
+  } else {
+    message = "No tasks yet. Add one!";
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-        {hasSearch ? "No tasks match your search." : "No tasks yet. Add one!"}
-      </Text>
+      <Text style={styles.text}>{message}</Text>
     </View>
   );
 }
