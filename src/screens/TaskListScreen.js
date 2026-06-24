@@ -46,12 +46,12 @@ export default function TaskListScreen({ navigation }) {
   );
 
   return (
-    <View style={s.container}>
-      <Text style={s.greeting}>Created by Arlind Ademaj</Text>
-      <Text style={s.heading}>My Tasks</Text>
+    <View style={styles.container}>
+      <Text style={styles.greeting}>Created by Arlind Ademaj</Text>
+      <Text style={styles.heading}>My Tasks</Text>
 
       <TextInput
-        style={s.search}
+        style={styles.search}
         placeholder="Search tasks..."
         placeholderTextColor="#444"
         value={search}
@@ -63,7 +63,7 @@ export default function TaskListScreen({ navigation }) {
       <FlatList
         data={filteredTasks}
         keyExtractor={(task) => String(task.id)}
-        contentContainerStyle={s.list}
+        contentContainerStyle={styles.list}
         ListEmptyComponent={<EmptyState hasSearch={search.length > 0} />}
         renderItem={renderItem}
       />
@@ -71,16 +71,16 @@ export default function TaskListScreen({ navigation }) {
       <QuoteCard quote={quote} />
 
       <TouchableOpacity
-        style={s.fab}
+        style={styles.fab}
         onPress={() => navigation.navigate("AddTask")}
       >
-        <Text style={s.fabText}>+ New Task</Text>
+        <Text style={styles.fabText}>+ New Task</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#0d0d0d",
