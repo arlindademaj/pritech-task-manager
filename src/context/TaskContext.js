@@ -25,14 +25,16 @@ export function TaskProvider({ children }) {
   };
 
   const toggleTask = async (id) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === id
-        ? {
-            ...task,
-            status: task.status === "completed" ? "pending" : "completed",
-          }
-        : task,
-    );
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        if (task.status === "completed") {
+          return { ...task, status: "pending" };
+        } else {
+          return { ...task, status: "completed" };
+        }
+      }
+      return task;
+    });
     setTasks(updatedTasks);
     await saveTasks(updatedTasks);
   };
