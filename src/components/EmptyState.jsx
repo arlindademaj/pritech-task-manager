@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import colors from "../utils/colors";
 
 export default function EmptyState({ hasSearch }) {
   return (
@@ -17,6 +18,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-    color: "#444",
+    color: colors.textMuted,
   },
 });

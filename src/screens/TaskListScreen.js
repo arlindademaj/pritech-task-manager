@@ -11,14 +11,14 @@ import EmptyState from "../components/EmptyState";
 import QuoteCard from "../components/QuoteCard";
 import TaskCard from "../components/TaskCard";
 import { useTasks } from "../context/TaskContext";
-
-const ACCENT = "#a3e635";
+import colors from "../utils/colors";
 
 export default function TaskListScreen({ navigation }) {
   const { tasks, toggleTask } = useTasks();
   const [search, setSearch] = useState("");
   const [quote, setQuote] = useState(null);
 
+  // Fetch a random quote when the screen loads
   useEffect(() => {
     fetch("https://dummyjson.com/quotes/random")
       .then((res) => res.json())
@@ -26,6 +26,7 @@ export default function TaskListScreen({ navigation }) {
       .catch(() => setQuote(null));
   }, []);
 
+  // Filter tasks based on search input
   const filteredTasks = useMemo(
     () =>
       tasks.filter((task) =>
@@ -34,6 +35,7 @@ export default function TaskListScreen({ navigation }) {
     [tasks, search],
   );
 
+  // Render each task card
   const renderItem = useCallback(
     ({ item }) => (
       <TaskCard
@@ -47,19 +49,22 @@ export default function TaskListScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      {/* Header */}
       <Text style={styles.greeting}>Created by Arlind Ademaj</Text>
       <Text style={styles.heading}>My Tasks</Text>
 
+      {/* Search bar */}
       <TextInput
         style={styles.search}
         placeholder="Search tasks..."
-        placeholderTextColor="#444"
+        placeholderTextColor={colors.textMuted}
         value={search}
         onChangeText={setSearch}
         clearButtonMode="while-editing"
         keyboardAppearance="dark"
       />
 
+      {/* Task list */}
       <FlatList
         data={filteredTasks}
         keyExtractor={(task) => String(task.id)}
@@ -68,8 +73,10 @@ export default function TaskListScreen({ navigation }) {
         renderItem={renderItem}
       />
 
+      {/* Random quote */}
       <QuoteCard quote={quote} />
 
+      {/* Add task button */}
       <TouchableOpacity
         style={styles.fab}
         onPress={() => navigation.navigate("AddTask")}
@@ -83,45 +90,45 @@ export default function TaskListScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0d0d0d",
+    backgroundColor: colors.background,
     padding: 24,
     paddingTop: 60,
     paddingBottom: 0,
   },
   greeting: {
     fontSize: 12,
-    color: "#444",
+    color: colors.textMuted,
     letterSpacing: 0.4,
     marginBottom: 4,
   },
   heading: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#fff",
+    color: colors.text,
     marginBottom: 16,
   },
   search: {
-    backgroundColor: "#1a1a1a",
+    backgroundColor: colors.card,
     borderRadius: 14,
     padding: 12,
     fontSize: 14,
-    color: "#fff",
+    color: colors.text,
     marginBottom: 20,
     borderWidth: 0.5,
-    borderColor: "#2a2a2a",
+    borderColor: colors.border,
   },
   list: {
     paddingBottom: 16,
   },
   fab: {
-    backgroundColor: ACCENT,
+    backgroundColor: colors.accent,
     borderRadius: 18,
     padding: 17,
     alignItems: "center",
     marginBottom: 24,
   },
   fabText: {
-    color: "#0d0d0d",
+    color: colors.background,
     fontSize: 15,
     fontWeight: "700",
   },

@@ -1,7 +1,6 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useTasks } from "../context/TaskContext";
-
-const ACCENT = "#a3e635";
+import colors from "../utils/colors";
 
 export default function TaskDetailScreen({ route, navigation }) {
   const { taskId } = route.params;
@@ -80,7 +79,7 @@ export default function TaskDetailScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0d0d0d",
+    backgroundColor: colors.background,
     padding: 24,
     paddingTop: 60,
   },
@@ -88,14 +87,14 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   backText: {
-    color: ACCENT,
+    color: colors.accent,
     fontSize: 15,
     fontWeight: "500",
   },
   heading: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#fff",
+    color: colors.text,
     marginBottom: 8,
   },
   date: {
@@ -114,17 +113,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#1a2a1a",
   },
   badgeDone: {
-    backgroundColor: "#1f1f1f",
+    backgroundColor: colors.card,
   },
   badgeText: {
     fontSize: 12,
     fontWeight: "600",
   },
   badgeTextPending: {
-    color: ACCENT,
+    color: colors.accent,
   },
   badgeTextDone: {
-    color: "#444",
+    color: colors.textMuted,
   },
   label: {
     fontSize: 13,
@@ -140,19 +139,19 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   toggleButton: {
-    backgroundColor: ACCENT,
+    backgroundColor: colors.accent,
     borderRadius: 18,
     padding: 17,
     alignItems: "center",
     marginBottom: 12,
   },
   toggleButtonText: {
-    color: "#0d0d0d",
+    color: colors.background,
     fontSize: 15,
     fontWeight: "700",
   },
   deleteButton: {
-    backgroundColor: "#1a1a1a",
+    backgroundColor: colors.card,
     borderRadius: 18,
     padding: 17,
     alignItems: "center",

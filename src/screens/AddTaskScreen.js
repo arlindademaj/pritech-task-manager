@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useTasks } from "../context/TaskContext";
-
-const ACCENT = "#a3e635";
+import colors from "../utils/colors";
 
 export default function AddTaskScreen({ navigation }) {
   const { addTask } = useTasks();
@@ -45,7 +44,7 @@ export default function AddTaskScreen({ navigation }) {
       <TextInput
         style={styles.input}
         placeholder="Enter task title..."
-        placeholderTextColor="#444"
+        placeholderTextColor={colors.textMuted}
         value={title}
         onChangeText={setTitle}
         keyboardAppearance="dark"
@@ -55,7 +54,7 @@ export default function AddTaskScreen({ navigation }) {
       <TextInput
         style={[styles.input, styles.textArea]}
         placeholder="Enter task description..."
-        placeholderTextColor="#444"
+        placeholderTextColor={colors.textMuted}
         value={description}
         onChangeText={setDescription}
         multiline
@@ -72,7 +71,7 @@ export default function AddTaskScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0d0d0d",
+    backgroundColor: colors.background,
     padding: 24,
     paddingTop: 60,
   },
@@ -80,14 +79,14 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   backText: {
-    color: ACCENT,
+    color: colors.accent,
     fontSize: 15,
     fontWeight: "500",
   },
   heading: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#fff",
+    color: colors.text,
     marginBottom: 32,
   },
   label: {
@@ -98,11 +97,11 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   input: {
-    backgroundColor: "#1a1a1a",
+    backgroundColor: colors.card,
     borderRadius: 14,
     padding: 14,
     fontSize: 15,
-    color: "#fff",
+    color: colors.text,
     marginBottom: 20,
   },
   textArea: {
@@ -110,14 +109,14 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
   },
   saveButton: {
-    backgroundColor: ACCENT,
+    backgroundColor: colors.accent,
     borderRadius: 18,
     padding: 17,
     alignItems: "center",
     marginTop: 8,
   },
   saveButtonText: {
-    color: "#0d0d0d",
+    color: colors.background,
     fontSize: 15,
     fontWeight: "700",
   },

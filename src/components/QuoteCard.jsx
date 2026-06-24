@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-
-const ACCENT = "#a3e635";
+import colors from "../utils/colors";
 
 export default function QuoteCard({ quote }) {
   if (!quote) return null;
@@ -15,12 +14,12 @@ export default function QuoteCard({ quote }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1a1a1a",
+    backgroundColor: colors.card,
     borderRadius: 14,
     padding: 14,
     marginBottom: 12,
     borderLeftWidth: 3,
-    borderLeftColor: ACCENT,
+    borderLeftColor: colors.accent,
   },
   text: {
     fontSize: 13,
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 12,
-    color: ACCENT,
+    color: colors.accent,
     fontWeight: "600",
   },
 });

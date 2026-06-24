@@ -1,6 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
-const ACCENT = "#a3e635";
+import colors from "../utils/colors";
 
 export default function TaskCard({ task, onPress, onToggle }) {
   const isDone = task.status === "completed";
@@ -43,7 +42,7 @@ export default function TaskCard({ task, onPress, onToggle }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#1a1a1a",
+    backgroundColor: colors.card,
     borderRadius: 16,
     padding: 14,
     marginBottom: 8,
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: ACCENT,
+    backgroundColor: colors.accent,
     flexShrink: 0,
   },
   dotDone: {
@@ -70,11 +69,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     fontWeight: "500",
-    color: "#fff",
+    color: colors.text,
   },
   titleDone: {
     textDecorationLine: "line-through",
-    color: "#444",
+    color: colors.textMuted,
   },
   description: {
     fontSize: 12,
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 11,
-    color: "#444",
+    color: colors.textMuted,
   },
   tag: {
     backgroundColor: "#1a2a1a",
@@ -96,14 +95,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   tagDone: {
-    backgroundColor: "#1f1f1f",
+    backgroundColor: colors.card,
   },
   tagText: {
     fontSize: 11,
     fontWeight: "600",
-    color: ACCENT,
+    color: colors.accent,
   },
   tagTextDone: {
-    color: "#444",
+    color: colors.textMuted,
   },
 });
