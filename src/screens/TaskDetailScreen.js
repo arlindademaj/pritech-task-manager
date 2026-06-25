@@ -17,6 +17,12 @@ export default function TaskDetailScreen({ route, navigation }) {
 
   const isDone = task.status === "completed";
 
+  const badgeStyle = isDone ? styles.badgeDone : styles.badgePending;
+  const badgeTextStyle = isDone
+    ? styles.badgeTextDone
+    : styles.badgeTextPending;
+  const badgeLabel = isDone ? "Completed" : "Pending";
+
   const handleDelete = () => {
     Alert.alert("Delete Task", "Are you sure?", [
       { text: "Cancel", style: "cancel" },
@@ -38,21 +44,13 @@ export default function TaskDetailScreen({ route, navigation }) {
       </TouchableOpacity>
 
       <Text style={styles.heading}>{task.title}</Text>
+
       <Text style={styles.date}>
         Created {new Date(task.createdAt).toLocaleDateString()}
       </Text>
 
-      <View
-        style={[styles.badge, isDone ? styles.badgeDone : styles.badgePending]}
-      >
-        <Text
-          style={[
-            styles.badgeText,
-            isDone ? styles.badgeTextDone : styles.badgeTextPending,
-          ]}
-        >
-          {isDone ? "Completed" : "Pending"}
-        </Text>
+      <View style={[styles.badge, badgeStyle]}>
+        <Text style={[styles.badgeText, badgeTextStyle]}>{badgeLabel}</Text>
       </View>
 
       <Text style={styles.label}>Description</Text>
