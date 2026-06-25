@@ -1,12 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { getTasks, saveTasks } from "../utils/storage";
 
-const TaskContext = createContext();
+export const TaskContext = createContext();
 
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([]);
 
-  // Load tasks when app opens
   useEffect(() => {
     getTasks().then(setTasks);
   }, []);
@@ -50,8 +49,4 @@ export function TaskProvider({ children }) {
       {children}
     </TaskContext.Provider>
   );
-}
-
-export function useTasks() {
-  return useContext(TaskContext);
 }

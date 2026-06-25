@@ -10,7 +10,7 @@ import {
 import EmptyState from "../components/EmptyState";
 import QuoteCard from "../components/QuoteCard";
 import TaskCard from "../components/TaskCard";
-import { useTasks } from "../context/TaskContext";
+import { useTasks } from "../hooks/useTasks";
 import colors from "../utils/colors";
 
 export default function TaskListScreen({ navigation }) {

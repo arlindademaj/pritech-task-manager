@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { useTasks } from "../context/TaskContext";
+import { useTasks } from "../hooks/useTasks";
 import colors from "../utils/colors";
 
 export default function AddTaskScreen({ navigation }) {
