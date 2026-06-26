@@ -52,6 +52,7 @@ src/
 │   ├── TaskDetailScreen.jsx
 │   └── TaskListScreen.jsx
 └── utils/
+    └── colors.js
     └── storage.js
 ```
 
