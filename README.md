@@ -45,6 +45,8 @@ src/
 │   └── TaskCard.jsx
 ├── context/
 │   └── TaskContext.js
+├── hooks/
+│   └── useTasks.js
 ├── screens/
 │   ├── AddTaskScreen.jsx
 │   ├── TaskDetailScreen.jsx
